@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/file", (req, res) => {
+  console.log(req.ip);
   res.attachment("helloworld.tex");
   res.sendFile(path.resolve("./helloworld.tex"));
 });

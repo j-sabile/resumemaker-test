@@ -12,7 +12,7 @@ try {
     tasks: {
       "import-my-file": {
         operation: "import/url",
-        url: "https://production-overleaf-static.s3.amazonaws.com/examples/helloworld.tex",
+        url: "https://resumemaker-test.onrender.com/file",
       },
       "convert-my-file": {
         operation: "convert",
