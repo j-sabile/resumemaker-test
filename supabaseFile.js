@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/file", (req, res) => {
   console.log("IP:", req.ip);
   console.log("ORIGIN:", req.headers.origin);
+  console.log("HEADER: ", req.headers);
   res.attachment("helloworld.tex");
   res.sendFile(path.resolve("./helloworld.tex"));
 });
