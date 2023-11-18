@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import fs from "fs";
 import path from "path";
 import express from "express";
+import cors from "cors";
 
 const app = express();
 
@@ -9,9 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/file", (req, res) => {
+  // app.get("/file", cors({ origin: "http://126.251.0.1" }), (req, res) => {
+  // app.get("/file", cors({ origin: "http://127.0.0.1" }), (req, res) => {
   console.log("IP:", req.ip);
   console.log("ORIGIN:", req.headers.origin);
-  console.log("HEADER: ", req.headers);
+  console.log("SOCKET:", req.socket.remoteAddress)
   res.attachment("helloworld.tex");
   res.sendFile(path.resolve("./helloworld.tex"));
 });
